@@ -2,35 +2,26 @@
 
 #include <iostream>
 
-struct board-dimension
-{
-    const int WIDTH = 19;
-    const int HEIGHT = 19;
-};
+const int BOARD_WIDTH = 19;
+const int BOARD_HEIGHT = 19;
+const char EMPTY_STONE = ' ';
+const char BLACK_STONE = '*';
+const char WHITE_STONE = 'O';
 
-struct spot
+enum Spot
 {
-    const int EMPTY = 0;
-    const int BLACK = 1;
-    const int WHITE = 2;
-};
-
-struct stone
-{
-    const char EMPTY = ' ';
-    const char BLACK = '*';
-    const char WHITE = 'O';
+    EMPTY,
+    BLACK,
+    WHITE,
 };
 
 class Goban
 {
     public:
     Goban ();
-    display ();
-    clear ();
-    private:
+    void display ();
+    void clear ();
     ~Goban ();
-    int width;
-    int height;
-    int board [ width ] [ height ];
+    private:
+    int board [ BOARD_WIDTH ] [ BOARD_HEIGHT ];
 };

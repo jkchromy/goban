@@ -5,8 +5,6 @@
 Goban::Goban ()
 {
     std::cout << "Creating Goban" << std::endl;
-    width = board-dimension.WIDTH;
-    height = board-dimentsion.HEIGHT;
     clear ();
 }
 
@@ -15,36 +13,40 @@ Goban::~Goban ()
     std::cout << "Destroying Goban" << std::endl;
 }
 
-Goban::display ()
+void Goban::display ()
 {
-    for ( int i = 0; i < width; i++ )
+    for ( int i = 0; i < BOARD_WIDTH ; i++ )
     {
-	for ( int j = 0; j < height; j++ )
+	for ( int j = 0; j < BOARD_HEIGHT; j++ )
 	{
 	    int spot = board [ i ][ j ];
-            if ( spot == spot.EMPTY )
+            if ( spot == Spot::EMPTY )
 	    {
-		std::cout << stone.EMPTY_SYMBOL;
+		std::cout << EMPTY_STONE;
 	    }
-	    else if ( spot == spot.BLACK )
+	    else if ( spot == Spot::BLACK )
 	    {
-		std::cout << stone.BLACK_SYMBOL;
+		std::cout << BLACK_STONE;
 	    }
-	    else if ( spot == spot.WHITE )
+	    else if ( spot == Spot::WHITE )
 	    {
-		std::cout << stone.WHITE_SYMBOL;
+		std::cout << WHITE_STONE;
 	    }
 	}
+	// end of row
+	std::cout << std::endl;
     }
+    // end of board
+    std::cout << std::endl;
 }
 
-Goban::clear ()
+void Goban::clear ()
 {
-    for ( int i = 0; i < width; i++ )
+    for ( int i = 0; i < BOARD_WIDTH; i++ )
     {
-	for ( int j = 0; j < width; j++ )
+	for ( int j = 0; j < BOARD_HEIGHT; j++ )
 	{
-	    board [ i ][ j ] = spot.EMPTY;
+	    board [ i ][ j ] = Spot::EMPTY;
 	}
     }
 }
