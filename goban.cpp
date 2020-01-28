@@ -19,19 +19,7 @@ void Goban::display ()
     {
 	for ( int j = 0; j < BOARD_HEIGHT; j++ )
 	{
-	    int spot = board [ i ][ j ];
-            if ( spot == Spot::EMPTY )
-	    {
-		std::cout << EMPTY_STONE;
-	    }
-	    else if ( spot == Spot::BLACK )
-	    {
-		std::cout << BLACK_STONE;
-	    }
-	    else if ( spot == Spot::WHITE )
-	    {
-		std::cout << WHITE_STONE;
-	    }
+	    std::cout << board [ i ][ j ] << " ";
 	}
 	// end of row
 	std::cout << std::endl;
@@ -49,4 +37,40 @@ void Goban::clear ()
 	    board [ i ][ j ] = Spot::EMPTY;
 	}
     }
+}
+
+Goban Goban::create_sample_goban ()
+{
+    Goban goban;
+
+    for ( int i = 0; i < BOARD_WIDTH; i++ )
+    {
+	for ( int j = 0; j < BOARD_HEIGHT; j++ )
+	{
+	    goban.put_stone ( i, j, BLACK_STONE );
+	}
+    }
+
+    return goban;
+}
+
+bool Goban::put_stone ( int x, int y, char color )
+{
+    if ( board [ x ][ y ] != EMPTY_STONE
+         || x < 1 || x > BOARD_WIDTH || y < 1 || y > BOARD_HEIGHT )
+    {
+#ifdef DEBUG
+	{
+	    std::cout << "failed to place " << color << " stone ";
+	    std::cout << "at position " << x << ", " << y << std::endl;
+	}
+#endif
+	return false;
+    }
+    else
+    {
+        board [ x ][ y ] = color;
+    }
+
+    return true;
 }

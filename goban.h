@@ -22,6 +22,8 @@ class Goban
     void display ();
     void clear ();
     ~Goban ();
+    bool put_stone ( int x, int y, char color );
+    static Goban create_sample_goban ();
     private:
     int board [ BOARD_WIDTH ] [ BOARD_HEIGHT ];
 };
