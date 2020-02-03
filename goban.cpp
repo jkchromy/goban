@@ -13,6 +13,11 @@ Goban::~Goban ()
     std::cout << "Destroying Goban" << std::endl;
 }
 
+void Goban::start ()
+{
+    std::cout << "Game is starting..." << std::endl;
+}
+
 void Goban::display ()
 {
     for ( int i = 0; i < BOARD_WIDTH ; i++ )
