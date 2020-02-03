@@ -4,8 +4,9 @@
 
 int main ()
 {
-    Goban goban = Goban::create_sample_goban ();
-    goban.display ();
+    Goban goban;
+
+    goban.start ();
 
     return 0;
 }
