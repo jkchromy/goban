@@ -1,6 +1,7 @@
 // goban.cpp
 
 #include "goban.h"
+#include <string>
 
 Goban::Goban ()
 {
@@ -16,6 +17,19 @@ Goban::~Goban ()
 void Goban::start ()
 {
     std::cout << "Game is starting..." << std::endl;
+    bool game_running = true;
+    bool blacks_turn = true;
+    while ( game_running )
+    {
+	std::string response = "";
+	std::cout << "Enter coordinates <x y> or q to quit: ";
+	std::cin >> response;
+	if ( response == "q" || response == "quit" )
+	{
+	    game_running = false;
+	}
+	    
+    }
 }
 
 void Goban::display ()
